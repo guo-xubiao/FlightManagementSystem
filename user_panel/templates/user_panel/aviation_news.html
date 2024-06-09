@@ -1,0 +1,25 @@
+{#user_panel/templates/user_panel/aviation_news.html#}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>航空资讯</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/aviation_news_background.css' %}?t={{ timestamp }}">
+</head>
+<body>
+<h1>PERFECT航空资讯</h1>
+<p>尊敬的{{ request.user.username }}，欢迎阅读最新的航空资讯！</p>
+
+<ul>
+    {% for article in news_articles %}
+        <li>
+            <a href="{{ article.link }}" target="_blank">{{ article.text }}</a>
+            <!-- 使用超链接展示文本内容，并设置href属性为对应的链接 -->
+        </li>
+    {% endfor %}
+</ul>
+<p><a href="https://www.carnoc.com/">尊敬的{{ request.user.username }}，点击这里查看更多航空资讯</a></p>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!-- templates/flight_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>航班列表</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/flight_list.css' %}?t={{ timestamp }}">
+</head>
+<body>
+    <header>
+        <h1>航班列表</h1>
+    </header>
+    <main>
+        <ul class="flight-list">
+            {% for flight in flights %}
+                <li class="flight-item">
+                    <a href="{% url 'flight_detail' flight.id %}">
+                        <div class="flight-info">
+                            <span class="flight-number">{{ flight.flight_number }}</span>
+                            <span class="flight-route dark-text">{{ flight.departure_city }} - {{ flight.arrival_city }}</span>
+                        </div>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </main>
+</body>
+</html>

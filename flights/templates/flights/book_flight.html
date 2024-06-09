@@ -1,0 +1,76 @@
+{#book_flight.html#}
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>预订航班</title>
+    <link rel="stylesheet" href="{% static 'css/booking.css' %}?t={{ timestamp }}">
+</head>
+<body>
+<div class="container">
+    <h1>预订航班</h1>
+    <form id="booking-form" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="passenger_name">姓名:</label>
+            <input type="text" id="passenger_name" name="passenger_name" required>
+        </div>
+        <div class="form-group">
+            <label for="gender">性别:</label>
+            <select id="gender" name="gender" required>
+                <option value="M">男</option>
+                <option value="F">女</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="id_number">证件号:</label>
+            <input type="text" id="id_number" name="id_number" required>
+        </div>
+        <div class="form-group">
+            <label for="phone_number">电话:</label>
+            <input type="text" id="phone_number" name="phone_number" required>
+        </div>
+        <div class="form-group">
+            <label for="payment_method">支付方式:</label>
+            <select id="payment_method" name="payment_method" required>
+                <option value="wechat">微信</option>
+                <option value="alipay">支付宝</option>
+                <option value="bank">银行卡</option>
+            </select>
+        </div>
+        <div class="form-group" id="bank-card-group" style="display: none;">
+            <label for="bank_card_number">银行卡号:</label>
+            <input type="text" id="bank_card_number" name="bank_card_number">
+        </div>
+        <div class="form-group">
+            <label for="seat_preference">座位位置:</label>
+            <select id="seat_preference" name="seat_preference">
+                <option value="window">靠窗</option>
+                <option value="aisle">靠过道</option>
+                <option value="middle">中间</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="cabin_class">舱位:</label>
+            <select id="cabin_class" name="cabin_class">
+                <option value="economy">经济舱</option>
+                <option value="first_class">头等舱</option>
+                <option value="business">商务舱</option>
+            </select>
+        </div>
+        <button type="submit">预订</button>
+    </form>
+</div>
+<!-- 模态框 -->
+<div id="success-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="close-modal-button">&times;</span>
+        <p>预订成功！</p>
+    </div>
+</div>
+
+<script src="{% static 'js/booking.js' %}"></script>
+</body>
+</html>

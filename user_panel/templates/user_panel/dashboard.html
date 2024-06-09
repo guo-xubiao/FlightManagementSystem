@@ -1,0 +1,93 @@
+{% load static %}
+<!-- templates/user_panel/dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ request.user.username }}的账号首页</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}?t={{ timestamp }}">
+</head>
+<body>
+
+<header>
+    <nav>
+        <ul>
+            <li><a href="{% url 'flight_list' %}">预定航班</a></li>
+            <li><a href="{% url 'aviation_news' %}">航班资讯</a></li>
+            <li><a href="{% url 'user_profile' %}">个人信息</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <h1>欢迎您的到来，尊敬的{{ request.user.username }}</h1>
+
+    <!-- 待出行订单 -->
+    <section>
+        <h2>待出行订单</h2>
+        {% if pending_bookings %}
+            <ul>
+                {% for booking in pending_bookings %}
+                    {% if booking.status != 'cancelled' %}  <!-- 如果订单状态不是已取消，则显示订单 -->
+                        <li>
+                            <div class="order-info">
+                                订单号: {{ booking.id }} -
+                                航班: {{ booking.flight.flight_number }} -
+                                出发日期: {{ booking.departure_date }} -
+                            </div>
+                            <form method="post" action="{% url 'cancel_booking' booking.id %}">
+                                {% csrf_token %}
+                                <input type="submit" value="退订">
+                            </form>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>您没有待出行的订单。</p>
+        {% endif %}
+    </section>
+
+    <!-- 已完成订单 -->
+    <section>
+        <h2>已完成订单</h2>
+        {% if completed_bookings %}
+            <ul>
+                {% for booking in completed_bookings %}
+                    <li>
+                        订单号: {{ booking.id }} -
+                        航班: {{ booking.flight.flight_number }} -
+                        出发日期: {{ booking.departure_date }}-
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>您没有已完成的订单。</p>
+        {% endif %}
+    </section>
+
+    <!-- 未完成订单 -->
+    <section>
+        <h2>未完成订单</h2>
+        {% if upcoming_orders %}
+            <ul>
+                {% for booking in upcoming_orders %}
+                    <li>
+                        订单号: {{ booking.id }} -
+                        航班: {{ booking.flight.flight_number }} -
+                        出发日期: {{ booking.departure_date }}
+                        {% if booking.status == 'cancelled' %}
+                            - 订单状态: 已退订
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>您没有未完成的订单。</p>
+        {% endif %}
+    </section>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!-- templates/flight_detail.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>航班详情</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/flight_detail.css' %}?t={{ timestamp }}">
+</head>
+<body>
+    <header>
+        <h1>航班详情</h1>
+    </header>
+    <main>
+        <div class="flight-details">
+            <p><strong>航班号:</strong> {{ flight.flight_number }}</p>
+            <p><strong>出发城市:</strong> {{ flight.departure_city }}</p>
+            <p><strong>到达城市:</strong> {{ flight.arrival_city }}</p>
+            <p><strong>出发时间:</strong> {{ flight.departure_time }}</p>
+            <p><strong>到达时间:</strong> {{ flight.arrival_time }}</p>
+            <a class="book-flight-btn" href="{% url 'book_flight' flight.id %}">预定此航班</a>
+        </div>
+    </main>
+</body>
+</html>

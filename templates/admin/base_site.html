@@ -1,0 +1,6 @@
+<!-- your_project/templates/admin/base_site.html -->
+{% extends 'admin/base.html' %}
+
+{% block branding %}
+    <h1 id="site-name"><a href="{% url 'admin:index' %}">航班管理系统管理后台</a></h1>
+{% endblock %}

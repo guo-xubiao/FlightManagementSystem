@@ -1,0 +1,28 @@
+body {
+    background-image: url('picture/1.jpg');
+    /* 可以通过调整以下属性来适应背景图片的显示方式 */
+    background-size: cover; /* 背景图片将填充整个页面 */
+    background-position: center; /* 将背景图片居中显示 */
+    background-repeat: no-repeat; /* 背景图片不重复 */
+}
+
+/* 为所有h1元素设置字体颜色 */
+h1 {
+    color: #ffffff; /* 深灰色 */
+}
+
+/* 为所有p元素设置字体颜色 */
+p {
+    color: #ffffff; /* 深灰色，但比h1稍浅 */
+}
+
+/* 为所有a元素设置字体颜色 */
+a {
+    color: #007bff; /* 蓝色，常用于链接 */
+    text-decoration: none; /* 去除下划线，如果需要 */
+}
+
+/* 鼠标悬停在a元素上时的颜色变化 */
+a:hover {
+    color: #0056b3; /* 深蓝色，鼠标悬停时变色 */
+}

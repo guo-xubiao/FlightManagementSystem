@@ -1,0 +1,71 @@
+/* static/css/flight_list.css */
+
+body {
+    background-image: url('picture/1.jpg');
+    background-size: cover;
+    background-color: #f4f4f4;
+    background-repeat: no-repeat;
+    background-position: center center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.flight-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 600px;
+}
+
+.flight-item {
+    background-color: rgba(255, 255, 255, 0.5); /* 50% 透明度的白色背景 */
+    margin-bottom: 10px;
+    padding: 15px;
+    border: 1px solid rgba(221, 221, 221, 0.5); /* 50% 透明度的灰色边框 */
+    border-radius: 5px;
+    transition: box-shadow 0.3s ease;
+}
+
+
+.flight-item:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.flight-item a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+}
+
+.flight-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flight-info .dark-text {
+    color: #000; /* 指定一个较深的灰色 */
+}
+
+.flight-number {
+    font-weight: bold;
+}
+
+.flight-route {
+    color: #666;
+}

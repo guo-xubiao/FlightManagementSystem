@@ -1,0 +1,28 @@
+{#user_panel/templates/user_panel/user_profile.html#}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ request.user.username }}的个人中心</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/flight_list.css' %}?t={{ timestamp }}">
+</head>
+<body>
+    <header>
+        <h1>{{ request.user.username }}的个人中心</h1>
+    </header>
+    <main>
+        <div class="user-profile">
+            <p>用户名: {{ request.user.username }}</p>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn-save">保存更改</button>
+            </form>
+            <!-- 其他用户资料信息 -->
+            <a href="{% url 'password_change' %}" class="btn-change-password">修改密码</a>
+        </div>
+    </main>
+</body>
+</html>

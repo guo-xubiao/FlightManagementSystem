@@ -1,0 +1,111 @@
+/* static/css/dashboard.css */
+
+body {
+    background-image: url('picture/1.jpg');
+    background-size: cover;
+    background-color: #f4f4f4;
+    background-repeat: no-repeat;
+    background-position: center center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #007bff;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #0042b3;
+}
+
+h1{
+    color: #fff;
+}
+
+/* 标题样式 */
+section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    margin-left: 20px; /* 添加左侧间距 */
+    color: #fff; /* 根据你的喜好调整颜色 */
+}
+/* 订单列表样式 */
+section ul {
+    list-style-type: none;
+    padding: 0;
+    margin-left: 20px;
+}
+
+h2, p {
+    margin-left: 20px;
+    color: #fff;
+}
+
+/* '订单信息' 和 '退订' 按钮样式 */
+section li {
+    border-bottom: 1px solid rgba(204, 204, 204, 0.5); /* 50% 透明度的灰色边框 */
+    padding: 10px 0;
+    margin-bottom: 10px;
+    display: flex; /* 设置为 flex 布局 */
+    align-items: center; /* 垂直居中对齐 */
+    background-color: rgba(255, 255, 255, 0.5); /* 50% 透明度的白色背景 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+
+.order-info {
+    flex: 0.38; /* 让订单信息部分占据剩余空间 */
+}
+
+/* 订单号样式 */
+.order-id {
+    font-weight: bold;
+    color: #333;
+}
+
+/* 航班信息样式 */
+.flight-info {
+    margin-left: 20px;
+    color: #0f0fce;
+}
+
+/* '退订' 按钮样式 */
+section form input[type="submit"] {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+/* '退订' 按钮悬停效果 */
+section form input[type="submit"]:hover {
+    background-color: #c82333; /* 悬停时更深的红色 */
+}
